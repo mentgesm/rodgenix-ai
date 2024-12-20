@@ -4,20 +4,21 @@ import pymysql
 import os
 
 
-# Adjust the static folder path
-#frontend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../frontend'))
+# Define the static folder path relative to app.py
+frontend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../frontend'))
 
-#app = Flask(__name__, static_folder=frontend_path)
+# Initialize Flask app with proper static folder
+app = Flask(__name__, static_folder=frontend_path)
 
-#@app.route("/")
-#def index():
-#    # Serve index.html for the root URL
-#    return send_from_directory(app.static_folder, "index.html")
+@app.route("/")
+def index():
+    """Serve the landing page."""
+    return send_from_directory(app.static_folder, "index.html")
 
-#@app.route("/<path:path>")
-#def serve_static(path):
-#    # Serve other static files
-#    return send_from_directory(app.static_folder, path)
+@app.route("/<path:filename>")
+def serve_static(filename):
+    """Serve any file in the frontend directory."""
+    return send_from_directory(app.static_folder, filename)
 
 
 from customers import customers_bp
