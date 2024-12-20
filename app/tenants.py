@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from db import db_connect
+import pymysql
 
 tenants_bp = Blueprint("tenants", __name__)
 

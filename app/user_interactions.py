@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from db import db_connect
+import pymysql
 
 user_interactions_bp = Blueprint("user_interactions", __name__)
 
