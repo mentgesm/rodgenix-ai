@@ -228,7 +228,7 @@ This schema supports multi-tenancy through the `tenant_id` field in most tables,
 
 4. Populate the database with dummy data (optional):
    ```bash
-   docker exec -i <db_container_name> mysql -u root -p rodgenix-ai < dummy_data.sql
+   docker exec -i <db_container_name> mysql -u root -p rodgenix < dummy_data.sql
    ```
 
 ---
