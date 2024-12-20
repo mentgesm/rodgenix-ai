@@ -192,7 +192,7 @@ This schema supports multi-tenancy through the `tenant_id` field in most tables,
   - Quotes, Orders, and Payments
   - AI Model metadata and NLP query mappings
 - Multi-tenant architecture with `tenant_id` ensuring data separation.
-- Dockerized deployment for consistent development and production environments.
+- Dockerized deployment for consistent development and production environments using MariaDB as the database.
 
 ### **Planned Features**
 - **Authentication**: Add user authentication and role-based access control.
@@ -213,7 +213,7 @@ This schema supports multi-tenancy through the `tenant_id` field in most tables,
 1. Clone the repository:
    ```bash
    git clone <repo-url>
-   cd rodgenix-ai
+   cd rodgenix
    ```
 
 2. Build and run the Docker containers:
@@ -230,6 +230,47 @@ This schema supports multi-tenancy through the `tenant_id` field in most tables,
    ```bash
    docker exec -i <db_container_name> mysql -u root -p rodgenix < dummy_data.sql
    ```
+
+### **Database Setup**
+
+The Rodgenix application uses MariaDB for its database. The database is configured to run in a Docker container as defined in the `docker-compose.yaml` file.
+
+#### **Configuration**
+The default database parameters are defined in the `docker-compose.yaml` file and can be adjusted if necessary:
+- **Service Name**: `db`
+- **Default Port**: `3306`
+- **Environment Variables**:
+  ```yaml
+  MYSQL_ROOT_PASSWORD: your_password
+  MYSQL_DATABASE: rodgenix
+  MYSQL_USER: rodgenix_user
+  MYSQL_PASSWORD: rodgenix_password
+  ```
+
+#### **Steps to Initialize the Database**
+1. **Start the MariaDB Container**:
+   ```bash
+   docker-compose up db
+   ```
+2. **Verify Database Connectivity**:
+   - Log into the container:
+     ```bash
+     docker exec -it <db_container_name> mysql -u root -p
+     ```
+   - Confirm the `rodgenix` database exists:
+     ```sql
+     SHOW DATABASES;
+     ```
+3. **Apply Schema**:
+   - If the database schema is not already initialized, apply it:
+     ```bash
+     docker exec -i <db_container_name> mysql -u root -p rodgenix < rodgenix_database_schema.sql
+     ```
+4. **Add Dummy Data (Optional)**:
+   - Populate the database with example data for testing:
+     ```bash
+     docker exec -i <db_container_name> mysql -u root -p rodgenix < dummy_data.sql
+     ```
 
 ---
 
