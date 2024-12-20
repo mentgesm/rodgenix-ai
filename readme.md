@@ -35,6 +35,15 @@ The project is organized into a modular structure to maintain scalability and re
 ├── docker-compose.yaml         # Docker Compose configuration
 ├── dockerfile                  # Docker image configuration
 ├── dummy_data.sql              # SQL script for populating dummy data
+├── frontend
+│   ├── api_explorer.html       # Interactive API endpoint explorer
+│   ├── css/
+│   │   └── styles.css          # Global styles for the frontend
+│   ├── index.html              # Landing page for the application
+│   ├── js/
+│   │   └── tenants.js          # JavaScript for tenant management
+│   └── tenants.html            # Tenant management page
+├── postman_collection.json     # Postman collection for testing API endpoints
 ├── rodgenix_database_schema.sql # Database schema definition
 └── tests.py                    # API endpoint test script
 ```
@@ -238,6 +247,34 @@ This schema supports multi-tenancy through the `tenant_id` field in most tables,
 - `POST /quotes`: Add a new quote.
 
 (Additional endpoints follow a similar pattern for other resources.)
+
+### **HTML Interface**
+#### **Landing Page**
+The landing page provides access to the admin dashboard and tenant management:
+- **URL**: `http://127.0.0.1:5001/`
+
+#### **API Explorer**
+A dynamic page for exploring API endpoints:
+- **URL**: `http://127.0.0.1:5001/api_explorer.html`
+
+---
+
+## **Postman Setup**
+#### **Postman Collection**
+A preconfigured Postman collection is available for testing API endpoints:
+- **File**: `postman_collection.json`
+- **Steps to Import**:
+  1. Open Postman.
+  2. Click **Import**.
+  3. Select the `postman_collection.json` file.
+  4. Use the configured requests to interact with the API.
+
+#### **Example Requests**
+- **GET Customers**:
+  - Method: `GET`
+  - URL: `http://127.0.0.1:5001/customers`
+  - Headers:
+    - `Tenant-ID: tenant-12345`
 
 ---
 
