@@ -1,0 +1,109 @@
+{
+  "info": {
+    "name": "Rodgenix API",
+    "description": "Collection for testing Rodgenix API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Customers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Tenant-ID",
+            "value": "tenant-12345",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:5001/customers",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "5001",
+          "path": ["customers"]
+        }
+      }
+    },
+    {
+      "name": "Quotes",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Tenant-ID",
+            "value": "tenant-12345",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:5001/quotes",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "5001",
+          "path": ["quotes"]
+        }
+      }
+    },
+    {
+      "name": "Orders",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Tenant-ID",
+            "value": "tenant-12345",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:5001/orders",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "5001",
+          "path": ["orders"]
+        }
+      }
+    },
+    {
+      "name": "Payments",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Tenant-ID",
+            "value": "tenant-12345",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:5001/payments",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "5001",
+          "path": ["payments"]
+        }
+      }
+    },
+    {
+      "name": "Photos",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Tenant-ID",
+            "value": "tenant-12345",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:5001/photos",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "5001",
+          "path": ["photos"]
+        }
+      }
+    }
+  ]
+}

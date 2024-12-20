@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tenant Management</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Tenant Management</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Add New Tenant</h2>
+      <form id="add-tenant-form">
+        <label for="tenant_id">Tenant ID:</label>
+        <input type="text" id="tenant_id" name="tenant_id" required>
+        <label for="db_name">Database Name:</label>
+        <input type="text" id="db_name" name="db_name" required>
+        <label for="db_user">Database User:</label>
+        <input type="text" id="db_user" name="db_user" required>
+        <label for="db_password">Database Password:</label>
+        <input type="password" id="db_password" name="db_password" required>
+        <button type="submit" class="button">Add Tenant</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Existing Tenants</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tenant ID</th>
+            <th>Database Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tenants-list">
+          <!-- Dynamic rows will be inserted here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script src="js/tenants.js"></script>
+</body>
+</html>

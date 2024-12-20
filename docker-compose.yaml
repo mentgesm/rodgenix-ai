@@ -1,0 +1,45 @@
+#version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb-rodgenix
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mentges99
+      MYSQL_DATABASE: rodgenix
+      MYSQL_USER: rodgenix_user
+      MYSQL_PASSWORD: rodgenix24
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./rodgenix_database_schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  adminer:
+    image: adminer
+    container_name: adminer-rodgenix
+    restart: always
+    ports:
+      - "8080:8080"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app-rodgenix
+    restart: always
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./app:/app
+    environment:
+      DB_HOST: mariadb
+      DB_USER: rodgenix_user
+      DB_PASSWORD: rodgenix24
+      DB_NAME: rodgenix
+    depends_on:
+      - mariadb
+
+volumes:
+  mariadb_data:

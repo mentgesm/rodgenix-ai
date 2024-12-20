@@ -1,0 +1,31 @@
+# Web framework
+flask==2.2.2  # For building the web application/API
+werkzeug==2.2.3 
+# Database
+pymysql  # For interacting with MariaDB
+sqlalchemy  # For ORM if needed
+
+# AI/ML
+numpy  # For numerical operations
+pandas  # For data manipulation
+scikit-learn  # For machine learning models
+nltk  # For natural language processing (if using NLP queries)
+tensorflow  # If you plan on using deep learning models (optional)
+
+# API and HTTP Requests
+requests  # For making HTTP requests
+flask-restful  # For building RESTful APIs
+flask_cors  # For Restful flask_cors
+
+# Utilities
+python-dotenv  # For managing environment variables
+loguru  # For enhanced logging
+
+# Security
+bcrypt  # For password hashing and user authentication
+
+# Data serialization
+marshmallow  # For input validation and serialization
+
+
+
